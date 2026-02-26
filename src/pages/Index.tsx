@@ -110,45 +110,6 @@ const Index = () => {
 
         <div className="newspaper-double-divider mt-8" />
 
-        {/* Section header for additional articles */}
-        <div className="flex items-center gap-4 mb-6">
-          <div className="flex-1 h-px bg-primary/30" />
-          <h2 className="font-display text-lg md:text-xl text-primary tracking-[0.3em] uppercase whitespace-nowrap">
-            Weitere Berichte
-          </h2>
-          <div className="flex-1 h-px bg-primary/30" />
-        </div>
-
-        {/* Text-only articles in 2-column newspaper grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
-          {articles.slice(4).map((article, i) => (
-            <div
-              key={article.id}
-              className="cursor-pointer group animate-fade-up border-b border-primary/10 pb-5"
-              style={{ animationDelay: `${0.3 + i * 0.1}s`, animationFillMode: "backwards" }}
-              onClick={() => navigate(`/artikel/${article.slug}`)}
-            >
-              <p className="text-muted-foreground text-[9px] tracking-[0.3em] uppercase mb-1">
-                {article.date}
-              </p>
-              <h3 className="font-display text-lg font-bold text-primary group-hover:text-primary/80 transition-colors leading-snug">
-                {article.title}
-              </h3>
-              <p className="text-foreground/50 font-display italic text-sm mt-0.5 mb-2">
-                {article.subtitle}
-              </p>
-              <p className="text-foreground/60 font-body text-sm leading-relaxed">
-                {article.content[0].slice(0, 150)}…
-              </p>
-              <span className="text-primary/70 text-xs tracking-widest uppercase mt-1 inline-block">
-                Weiterlesen →
-              </span>
-            </div>
-          ))}
-        </div>
-
-        <div className="newspaper-double-divider mt-8" />
-
         {/* Bottom info block */}
         <div className="text-center">
           <p className="text-muted-foreground text-[10px] tracking-[0.4em] uppercase">
