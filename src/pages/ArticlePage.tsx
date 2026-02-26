@@ -30,19 +30,25 @@ const ArticlePage = () => {
         </div>
       </nav>
 
-      {/* Hero image */}
-      <div className="relative w-full h-[40vh] md:h-[50vh] overflow-hidden">
-        <img
-          src={article.image}
-          alt={article.title}
-          className="w-full h-full object-cover"
-          style={{ filter: "grayscale(30%) contrast(1.1)" }}
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent" />
-      </div>
+      {/* Hero image or dark header */}
+      {article.image ? (
+        <div className="relative w-full h-[40vh] md:h-[50vh] overflow-hidden">
+          <img
+            src={article.image}
+            alt={article.title}
+            className="w-full h-full object-cover"
+            style={{ filter: "grayscale(30%) contrast(1.1)" }}
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent" />
+        </div>
+      ) : (
+        <div className="relative w-full h-[20vh] md:h-[25vh] bg-secondary/50">
+          <div className="absolute inset-0 bg-gradient-to-t from-background to-transparent" />
+        </div>
+      )}
 
       {/* Article content */}
-      <article className="max-w-4xl mx-auto px-4 -mt-24 relative z-10 pb-16">
+      <article className={`max-w-4xl mx-auto px-4 ${article.image ? '-mt-24' : '-mt-16'} relative z-10 pb-16`}>
         <header className="mb-8 animate-fade-up">
           <p className="text-muted-foreground text-xs tracking-[0.5em] uppercase mb-3 font-body">
             {article.date}
